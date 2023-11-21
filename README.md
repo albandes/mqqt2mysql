@@ -17,7 +17,7 @@ See also the list of [contributors](https://github.com/albandes/helpdezk/contrib
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [licence.txt](LICENSE.txt) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details
 
 
 
