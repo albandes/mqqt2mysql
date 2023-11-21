@@ -12,6 +12,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Rogério Albandes** - *Initial work* - [albandes](https://github.com/albandes)
+* **Valentin Acosta**  - *Initial work* - [valentin](https://github.com/vilaxr)
 
 See also the list of [contributors](https://github.com/albandes/helpdezk/contributors) who participated in this project.
 
