@@ -61,7 +61,7 @@ See also the list of [contributors](https://github.com/albandes/helpdezk/contrib
     systemctl status mqtt2mysql.service
     ```
     ``` bash
-    systemctl status mqtt2mysql.service
+    systemctl enable mqtt2mysql.service
     ```
     
 * **References**    
