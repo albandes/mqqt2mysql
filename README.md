@@ -1,8 +1,20 @@
 # MQTT2MYSQL Class
+
 PHP class to subscribe to a topic in an MQTT broker and save it in a Mysql database.
+
+A classe mqtt2mysql utiliza a classe [php-mqtt/client](https://packagist.org/packages/php-mqtt/client) de autoria de [Marvin Mall](https://github.com/namoshek). 
 
 ## Contributing
 Please read [CONTRIBUTING.md](https://github.com/albandes/helpdezk/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Instalation
+The package is available on packagist.org and can be installed using composer:
+
+```bash
+composer require php-mqtt/client
+```
+
+The package requires PHP version 7.4 or higher.
 
 ## Versioning
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
@@ -10,6 +22,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 * **Rogério Albandes** - *Initial work* - [albandes](https://github.com/albandes)
 * **Valentin Acosta**  - *Initial work* - [valentin](https://github.com/vilaxr)
+
 See also the list of [contributors](https://github.com/albandes/helpdezk/contributors) who participated in this project.
 
 
@@ -29,7 +42,7 @@ See also the list of [contributors](https://github.com/albandes/helpdezk/contrib
     Type=idle
     User=<Yor user>
     WorkingDirectory=<Your working directory>
-    ExecStart=<php location> <mqtt2mysql.php>
+    ExecStart=<php location> <mqtt-listen.php>
     Restart=on-failure
 
     [Install]
@@ -48,7 +61,7 @@ See also the list of [contributors](https://github.com/albandes/helpdezk/contrib
     systemctl status mqtt2mysql.service
     ```
     ``` bash
-    systemctl enable php-subscribe-mqtt.service
+    
     ```
     
 * **References**    
