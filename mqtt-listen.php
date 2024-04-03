@@ -30,7 +30,7 @@ $db = new DB($dsn,$objENV->DB_USERNAME,$objENV->DB_PASSWORD);
 $mqtt2mysql = new mqtt2mysql($db);
 $mqtt2mysql->set_debug($debug);
 
-$sql = "INSERT INTO dtc_mqtt (temperature,id_sensor,mqtt_date,publication_date) VALUES (?,?,?,NOW(6))";
+$sql = "INSERT INTO alb_grafana.mqtt (topic,message,mqtt_date,publication_date) VALUES (?,?,NOW(6),?)";
 
 $clean_session  = false;
 $mqttQos = getBrokerQOS($_ENV);
@@ -49,19 +49,21 @@ try {
   if($debug)
     printf("client connected\n");
   
+    echo "ante de assinar \n";
   $mqtt->subscribe($objENV->BROKER_TOPIC, function (string $topic, string $message, bool $retained)  use ($sql, $mqtt2mysql, $objLogger) {
-  
+  echo "assinou \n";
     $aPayload = json_decode($message);
   
     $objLogger->info("Received a message from broker.", ['topic' => $topic,'message' => $message]);
-
-    if(!empty($aPayload->DS18B20->Temperature)){
-      $arrayValues = array($aPayload->DS18B20->Temperature,$aPayload->DS18B20->Id,date("Y-m-d H:i:s", strtotime($aPayload->Time)));
+    echo $message;
+    if(!empty($message)){
+      $arrayValues = array($topic,$message,date("Y-m-d H:i:s", strtotime($aPayload->Time)));
       $mqtt2mysql->saveTopic($sql,$arrayValues);  
     }
     
-    }, $mqttQos) ;
-  
+  }, $mqttQos) ;
+
+
   $mqtt->loop(true);
 
   // Gracefully terminate the connection to the broker.
